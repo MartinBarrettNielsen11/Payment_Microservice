@@ -26,4 +26,4 @@ sleep 2s
 
 #pushd demo_client
 #mvn test
-popd
+#popd
