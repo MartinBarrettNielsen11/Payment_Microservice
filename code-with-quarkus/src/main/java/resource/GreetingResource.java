@@ -1,4 +1,4 @@
-package org.acme;
+package resource;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -14,3 +14,4 @@ public class GreetingResource {
         return "Hello RESTEasy";
     }
 }
+

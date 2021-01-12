@@ -56,6 +56,13 @@
       <artifactId>rest-assured</artifactId>
       <scope>test</scope>
     </dependency>
+    <dependency>
+		<groupId>com.sun.xml.ws</groupId>
+		<artifactId>jaxws-ri</artifactId>
+		<version>2.3.3</version>
+		<type>pom</type>
+	</dependency>
+    
   </dependencies>
   <build>
     <plugins>
@@ -86,6 +93,29 @@
           </systemPropertyVariables>
         </configuration>
       </plugin>
+      <!-- add jaxws-maven-plugin -->
+      <plugin>
+		<groupId>org.codehaus.mojo</groupId>
+		<artifactId>jaxws-maven-plugin</artifactId>
+		<version>2.6</version>
+		<executions>
+		<execution>
+		<id>wsimport-from-jdk</id>
+		<goals>
+		<goal>wsimport</goal>
+		</goals>
+		</execution>
+		</executions>
+		<configuration>
+		<wsdlUrls>
+		<wsdlUrl>http://g-00.compute.dtu.dk/BankService.wsdl.xml</wsdlUrl>
+		</wsdlUrls>
+		<keep>true</keep>
+		<packageName>dtu.ws.fastmoney</packageName>
+		<sourceDestDir>src/main/java</sourceDestDir>
+		</configuration>
+      </plugin>
+      <!-- add jaxws-maven-plugin end-->
     </plugins>
   </build>
   <profiles>
